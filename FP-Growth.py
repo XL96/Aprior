@@ -7,8 +7,7 @@ Created on Tue Apr  3 22:45:48 2018
 """
 import pandas as pd
 url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data'
-#df = pd.read_csv(url)
-df = pd.read_csv('adult.data.csv')
+df = pd.read_csv(url)
 data = pd.read_csv('adult.data.csv',names=['age','workclass','fnlwgt','Education','education-num',
                                              'marital status','occupation','relationship','race','sex',
                                              'capital gain','capital loss','hours-per-week','country','income'],
@@ -64,11 +63,9 @@ def CreateTree(df,threshold):
 
 def Mine_pattern(data,prefix,freq_pattern,threshold):
     root,header = CreateTree(data,threshold)
-    #print(header.keys())
     for item in header:
         freq = set(prefix)
         freq.add(item)
-       # print(freq)
         freq_pattern.append(freq)
         conditional_pattern = {}
         while header[item]!= []:
@@ -88,7 +85,6 @@ def Prefix(node,path):
     
 def UpdateTree(root,pattern,header,count):
     while pattern != []:
-        #print(root.Item)
         item = pattern.pop(0)
         Inchildren = False
         for child in root.Children:
@@ -97,7 +93,6 @@ def UpdateTree(root,pattern,header,count):
                 Inchildren = True
                 root = child
         if Inchildren == False:
-            #print()
             leaf = Node(item,root,1*count)
             root.Children.append(leaf)
             header[item].append(leaf)
@@ -123,13 +118,5 @@ if __name__ == "__main__":
 
     print()
 
-   # Prepro = {}
-    #for tuples in data.itertuples():
-        #Prepro[frozenset(tuples)] = 1  
-
-
-    #frequentcleaned = []
-    #Mine_pattern(Prepro,set([]),frequent,32560/2)
-    #print(frequent)
     
 
