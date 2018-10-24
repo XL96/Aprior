@@ -8,8 +8,7 @@ Created on Tue Apr  3 22:52:49 2018
 
 import pandas as pd
 url = 'http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data'
-#df = pd.read_csv(url)
-df = pd.read_csv('adult.data.csv')
+df = pd.read_csv(url)
 data = pd.read_csv('adult.data.csv',names=['age','workclass','fnlwgt','Education','education-num',
                                              'marital status','occupation','relationship','race','sex',
                                              'capital gain','capital loss','hours-per-week','country','income'],
@@ -83,6 +82,4 @@ def Aprior(df,threshold):
 
 if __name__ == "__main__":
     print(Aprior(df,32560/2))
-    print()
-    #print(Aprior(data,32560/2))
 
