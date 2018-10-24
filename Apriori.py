@@ -61,7 +61,7 @@ def GenCk(C,k): #Generate a list k item candidates
                 Ck.append(frozenset(C[i]|C[j]))
     return Ck
 
-def Aprior(df,threshold):
+def Apriori(df,threshold):
     FrequentItemSets = []
     F1 = GenFrequent1(df,threshold)
     FrequentItemSets.append(F1)
@@ -81,5 +81,5 @@ def Aprior(df,threshold):
         print()
 
 if __name__ == "__main__":
-    print(Aprior(df,32560/2))
+    print(Apriori(df,32560/2))
 
