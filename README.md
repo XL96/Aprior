@@ -1,1 +1,4 @@
-# my python implementation of Aprior algorithm using the UCI Adult Census Dataset
+# Frequent Item Set Mining
+
+My python implementation of Apriori and FP-growth algorithms using the UCI adult census dataset.
+
